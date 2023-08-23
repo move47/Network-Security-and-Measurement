@@ -1,30 +1,37 @@
-## The Million Dollar Dissident 
-### [Article Link](https://citizenlab.ca/2016/08/million-dollar-dissident-iphone-zero-day-nso-group-uae/)
+### 1) What are the main contributions of this paper (”SoK: Towards Grounding Censorship Circumvention in Empiricism”)?
 
-### 1) What are the main contributions of this paper (“The Million Dollar Dissident:Zero day Apple vulnerability”)?
+The survey paper highlights the disconnect between real-world sensors’ operating characteristics
+and the circumvention techniques proposed in research. For instance, the authors assert that
+real-world sensors focus on attacks during the link setup phase; however, research solutions fo-
+cus on link usage attacks. Later, the paper expands on the existing research gaps and provides
+recommendations on how better circumvention tools can be designed
 
-The article focuses mainly on the operational aspects of the spyware used to track a human
-rights activist stationed in the UAE. The malware writers primarily exploited an iPhone zero-
-day vulnerability, which allowed them to execute applications with elevated privileges. Later,
-investigators ascribed this malware to NSO Group, based in Harzelia, Israel, and simultaneously
-emphasized the government’s active participation.
+### 2) What parts of the paper (”SoK: Towards Grounding Censorship Circumvention in Empiricism”) do you find unclear?
 
-### 2) What parts of the paper(“The Million Dollar Dissident: Zero day Apple vulnerability”) do you find unclear?
+- I didn’t understand what the authors mean by point 3 on page 2, i.e., Censors favor
+attacks that do not risk falsely blocking allowed connections due to packet loss, whereas
+research considers many less robust attacks.
+- I didn’t understand the cause of the disparity between the research and practice. I would
+like to know more about why researchers proposed advanced/irrelevant approaches than
+actual requirements. I feel there might be some caveats behind this disparity.
 
-- The report is well documented.
-- How do we define ethics/morality while discussing offensive and defensive research?
-- As we discussed in the last class, some legitimate apps can also be re-purposed to track
-someone’s location, e.g., Google can follow an individual through a device tracking fea-
-ture provided for lost and found cases. How do we consider these cases in this context?
+### 3) What parts of the paper (”SoK: Towards Grounding Censorship Circumvention in Empiricism”) are questionable? (That is, you think a conclusion may be wrong, an approach or evaluation technically flawed, or data ill-presented.)
 
-### 3) What parts of the paper (“The Million Dollar Dissident: Zero day Apple vulnerability”) are questionable? (That is, you think a conclusion may be wrong, an approach or evaluation technically flawed, or data ill-presented.)
+- I wonder why the authors did not look at the Ethical considerations of circumvention
+approaches.
+- In Table II, the authors mention the vulnerabilities exploited by censors against TOR
+till 2013(except one from 2014). However, the paper was presented in 2016. I believe
+there might also be other censorship attacks against TOR during this missed time.
+- The authors look at the circumvention tools that mostly fall into the category of Poly-
+morphism and Steganography. However, I believe there could be networking-based cir-
+cumvention approaches as well. e.g., Encrypted DNS, Dynamic CDNs, etc.
 
-- How is the allocation of alike domains like googleplay-store.com, whatsapp-app.com pos-
-sible? I believe a parent organisation reserves some domains with sufficient edit distance
-with them.
-- I believe an ISP can blacklist the c2c domains/IPs; however, it might not be possible if
-the government participates in this. So, what is the best approach in such circumstances
-apart from the device organization (Apple in this case) releasing a security patch?
-- Moreover, it is believed that the malware (e.g., Mirai Botnet) disappears when the device
-reboots. However, in this case, the spyware persisted and started its intended activities
-after reboot, so what makes such malware different from the die-on-reboot malware?
+### 4) From the reading, identify a trend in either censorship or circumvention that you found interesting. Describe it and why it interested you.
+
+**END-TO-END ENCRYPTION(E2E):** I think the adoption of E2E by popular services is making
+governments job hard to perform active/passive analysis of user traffic. For instance, early this
+year, the Indian government protested against Whatsapp when it claimed to deploy E2E for
+Indian users.
+DEPENDENCY ON LARGE PLATFORMS: Many smaller content producers(Spyware apps)
+can use the more pervasive platforms(Google Playstore, Apple Appstore, etc.) to reach end
+users, wherein if they go directly, they might get censored.
