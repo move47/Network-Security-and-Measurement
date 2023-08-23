@@ -1,3 +1,4 @@
+## Spamalytics: An Empirical Analysis of Spam Marketing Conversion
 ### 1) What are the main contributions of this paper (”Spamalytics: An Empirical Analysis of Spam Marketing Conversion”)?
 The paper broadly studies spam behavior and presents an approach to measure spam’s suc-
 cess rate. The measurements are carried out using the Storm botnet and its spamming agents.
@@ -57,3 +58,51 @@ Education.
 - In the other paper, I found the BGP short-lived attack more exciting and even more
 surprising fact about it that IP blacklists don’t list most of such invalid prefixes in their
 list.
+
+## Click Trajectories: End-to-End Analysis of the Spam Value Chain
+### 1) What are the main contributions of this paper (”Click Trajectories: End-to-End Analysis of the Spam Value Chain”)?
+
+In this study, the authors’ primary objective was to understand the resource requirements be-
+hind the successful end-to-end operation of the Spam value chain. The author examines three
+months of real-time source data, such as captive botnets, raw spam feeds, and feeds of spam-
+advertised URLs, to identify possible bottleneck resources. 
+
+Finally, the authors determined that
+the payment infrastructure may be exploited to thwart spamming activities due to limited pay-
+ment choices spammers have.
+
+### 2) What parts of the paper (”Click Trajectories: End-to-End Analysis of the Spam Value Chain”) do you find unclear?
+
+- I could not understand the difference between Fig. 3 and Fig. 4. I believe the information
+conveyed in Fig. 4 can be understand from Fig. 3 itself, so I consider the information in
+Fig.4 is redundant.
+- I wonder, why doesn’t the authors investigate the logistics infrastructure involved in the
+spam value chain, such as the delivery partners and return address for packages?
+
+### 3) What parts of the paper (”Click Trajectories: End-to-End Analysis of the Spam Value Chain) are questionable? (That is, you think a conclusion may be wrong, an approach or evaluation technically flawed, or data ill-presented.)
+
+- When the authors were performing the DNS and web crawling, the spam adversary
+might control several URLs and thus can block such crawling form happening, I guess it
+is possible with the proposed methodology as well.
+- Fig. 5 highlights the effectiveness of resources (DNS, web hosting), etc., takedown on
+the spamming chain. After taking values directly from the already collected data, I
+assume the authors plotted the curves. However, I believe that the results might vary
+in the case of actual takedowns of services as then spammers might have an alternative
+infrastructure in place, which is not getting captured in these figures.
+
+### 4). Frame an aspect of Internet cybercrime/the underground economy that interests you. Discuss the research issues it presents in terms of what you would like to understand about it, how you might go about investigating (and validating) it, and what difficulties (technical, logistical, ethical, legal) the undertaking might present.
+
+I want to study the working of how major players like Google, Meta, and TikTok steal user data
+for better advertisements.
+The underlying economy is vast; consequently, web advertisements have become the cheap-
+est product advertisement mode for most companies.
+I think it is criminal activity as users’ browsing sessions get monitored without alerting them.
+
+The technical challenge would be understanding the techniques used to steal user activities
+(pixel embedding, javascript code injections, in-app browsing, etc. ). Later, some websites can
+be randomly visited in sandboxing mode to know the type of third-party calls it makes. The
+logistical challenge in this process would be the difficulty of doing this for large-scale websites.
+
+Moreover, I believe this could results into several false positives/negatives. But the careful de-
+sign of empirical methodologies can alleviate such issues. Finally, we can analyze the coverage
+distribution of such companies, amount a company takes to sell its data to product owners, etc.
