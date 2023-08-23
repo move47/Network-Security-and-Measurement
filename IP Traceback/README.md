@@ -29,19 +29,14 @@
     In this case, the victim will lead to an utterly non-existent path during reconstruction.
 
 ### 5) Discuss another form of spoofed identity that occurs in the Internet and sketch a mechanism to either prevent it or trace it back. Briefly discuss your proposed approach in terms of what it costs, its limitations, and how an attacker might subvert it.
-
+    <center>
     ARP spoofing: In it, an active/passive adversary would intentionally send a forged 
-    MAC address corresponding to a legitimate ARP request and 
-    gain covert access to the following requests/replies. 
-    Following, I am highlighting a mechanism that can help track an ARP attacker operating in promiscuous mode. 
-    The proposed idea works in two steps: fake ARP request flooding and TCP Syn flooding. 
-    The first step doesn’t incur any overhead, as it is a standard ARP request. 
-    However, the second step requires one extra network broadcast. The notable drawback of this scheme is the 
-    restriction on the adversary’s mode of operation.
+    MAC address corresponding to a legitimate ARP request and gain covert access to the following requests/replies. Following, I am highlighting a mechanism that can help track an ARP attacker operating in promiscuous mode. The proposed idea works in two steps: fake ARP request flooding and TCP Syn flooding. The first step doesn’t incur any overhead, as it is a standard ARP request. However, the second step requires one extra network broadcast. The notable drawback of this scheme is the restriction on the adversary’s mode of operation.
+    </center>
 
 ### 6) Bonus (optional) there is a large body of work on traceback, launched (in part) as a followup to this work. Do a brief literature search (protip: pivot on papers that cite this paper) and identify a follow-on study you find interesting. Why is
 it interesting? Do you think it improves significantly over the original? Other thoughts?
-    
+    <center>
     I found the study by Song. et al. [1](#References) interesting. 
     The study proposes an optimization and highlights the limitations in this work along the way. 
     I particularly liked their idea of using simple hashing operations for compression. 
@@ -50,6 +45,7 @@ it interesting? Do you think it improves significantly over the original? Other 
     This study also provides a study that covers most of the performance metrics that are not in current work. 
     However, they also validate the efficacy in a simulation setting only. 
     They also discuss an authentication mechanism to avoid relaying any fake marked packet.
+    </center>
 
 ### References
 
