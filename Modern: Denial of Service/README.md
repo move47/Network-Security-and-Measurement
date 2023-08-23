@@ -1,4 +1,4 @@
-1. What are the main contributions of this paper (”Understanding the Mirai Bot-
+### 1. What are the main contributions of this paper (”Understanding the Mirai Bot-
 net”)?
 
     The research explains the Mirai-IoT botnet phenomena and how low-power devices with pre-
@@ -6,7 +6,7 @@ net”)?
     targets/attacks, ownership remapping, and evolution. Finally, it discusses defense techniques to
     prevent IoT/Embedded devices from being part of such DDoS attacks.
 
-2. What parts of the paper do you find unclear?
+### 2. What parts of the paper do you find unclear?
 
     (1) I didn’t understand the rationale behind using Network Telescope and Active Scanning
     simultaneously.
@@ -14,7 +14,7 @@ net”)?
     (2) In Figure 3, why some ports (22, 2222, 37777) have very minimal scans compared to
     other ports (23, 5555).
 
-3. What parts of the paper are questionable? (That is, you think a conclusion may
+### 3. What parts of the paper are questionable? (That is, you think a conclusion may
 be wrong, an approach or evaluation technically flawed, or data ill-presented.)
 
     (1) On Page 1, the second paragraph talks about how ”efficient spreading based on Internet-
@@ -26,7 +26,7 @@ be wrong, an approach or evaluation technically flawed, or data ill-presented.)
     would be using firewalls, intrusion detection systems, etc. I doubt that the authors
     measure how well these defenses worked to keep the attacks out.
 
-4. You’ve now read 2 papers on DoS, 16 years apart. From these two works (”Infer-
+### 4. You’ve now read 2 papers on DoS, 16 years apart. From these two works (”Infer-
 ring Internet Denial-of-Service Activity”, and ”Understanding the Mirai Botnet”),
 how has the landscape of DoS changed both technically and non-technically? Iden-
 tify specifics.
@@ -40,7 +40,7 @@ tify specifics.
     Figure 3, the peak of infections didn’t last long because the patches were deployed immediately
     against the vulnerabilities.
 
-5. Identify a specific methodological contribution you found interesting in this
+### 5. Identify a specific methodological contribution you found interesting in this
 paper, and describe it briefly. What is another kind of attack or study that could
 make use of this method?
 
@@ -51,7 +51,7 @@ make use of this method?
     targets. This IP information can be used to alert ISPs and network administrators about ongoing
     malicious activities. This data is more detailed than simply collecting scanning behavior.
 
-6. Bonus (optional) both works make use of network telescopes. Do you find one
+### 6. Bonus (optional) both works make use of network telescopes. Do you find one
 description or approach to be more clear, compelling, or ”correct”? Justify your
 answer.
 
