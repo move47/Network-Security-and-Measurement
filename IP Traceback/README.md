@@ -30,9 +30,14 @@
 
 ### 5) Discuss another form of spoofed identity that occurs in the Internet and sketch a mechanism to either prevent it or trace it back. Briefly discuss your proposed approach in terms of what it costs, its limitations, and how an attacker might subvert it.
 
-    ARP spoofing: In it, an active/passive adversary would intentionally send a forged MAC address corresponding to a legitimate ARP request and gain covert access to the following requests/replies. 
-    Following, I am highlighting a mechanism that can help track an ARP attacker operating in promiscuous mode. The proposed idea works in two steps: fake ARP request flooding and TCP Syn flooding. 
-    The first step doesn’t incur any overhead, as it is a standard ARP request. However, the second step requires one extra network broadcast. The notable drawback of this scheme is the restriction on the adversary’s mode of operation.
+    ARP spoofing: In it, an active/passive adversary would intentionally send a forged 
+    MAC address corresponding to a legitimate ARP request and 
+    gain covert access to the following requests/replies. 
+    Following, I am highlighting a mechanism that can help track an ARP attacker operating in promiscuous mode. 
+    The proposed idea works in two steps: fake ARP request flooding and TCP Syn flooding. 
+    The first step doesn’t incur any overhead, as it is a standard ARP request. 
+    However, the second step requires one extra network broadcast. The notable drawback of this scheme is the 
+    restriction on the adversary’s mode of operation.
 
 ### 6) Bonus (optional) there is a large body of work on traceback, launched (in part) as a followup to this work. Do a brief literature search (protip: pivot on papers that cite this paper) and identify a follow-on study you find interesting. Why is
 it interesting? Do you think it improves significantly over the original? Other thoughts?
