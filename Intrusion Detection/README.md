@@ -1,11 +1,11 @@
-### 1. What are the main contributions of this paper (”Bro: A System for Detecting
-Network Intruders in Real-Time”)? 
+### 1. What are the main contributions of this paper (”Bro: A System for Detecting Network Intruders in Real-Time”)? 
 
 The work proposed an open-source real-time Network Intrusion Detection tool known as Bro. Bro passively monitors the network and provides notification in case of suspicious activity (host connecting to a non-allowed port, TCP RST without having a prior connection, etc.). 
 
 Bro mainly works by first parsing network traffic using libpcap to get its application-level meaning and then running event-oriented analyzers that compare the activity with patterns that are thought to be anomalous.
 
 ### 2. What parts of the paper do you find unclear?
+
 (1) Bro provides intrusion notifications in real-time. However, looking at the workflow, it seems that a decent amount of post-processing is required before flagging suspicious events. I believe I couldn’t figure out how much is this time duration.
 
 (2) I quite didn’t understand how Bro can protect itself from subterfuge attacks. The ex-
