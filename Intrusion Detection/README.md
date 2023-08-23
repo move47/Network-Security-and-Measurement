@@ -1,33 +1,52 @@
-### 1. What are the main contributions of this paper (Understanding the Mirai Botnet”)?
+### 1. What are the main contributions of this paper (”Bro: A System for Detecting
+Network Intruders in Real-Time”)? 
 
-The research explains the Mirai-IoT botnet phenomena and how low-power devices with pre-
-dictable passwords get attacked. Later, it employs multiple measures to track Mirai’s spread, targets/attacks, ownership remapping, and evolution. Finally, it discusses defense techniques to prevent IoT/Embedded devices from being part of such DDoS attacks.
+The work proposed an open-source real-time Network Intrusion Detection tool known as Bro. Bro passively monitors the network and provides notification in case of suspicious activity (host connecting to a non-allowed port, TCP RST without having a prior connection, etc.). 
+
+Bro mainly works by first parsing network traffic using libpcap to get its application-level meaning and then running event-oriented analyzers that compare the activity with patterns that are thought to be anomalous.
 
 ### 2. What parts of the paper do you find unclear?
+(1) Bro provides intrusion notifications in real-time. However, looking at the workflow, it seems that a decent amount of post-processing is required before flagging suspicious events. I believe I couldn’t figure out how much is this time duration.
 
-(1) I didn’t understand the rationale behind using Network Telescope and Active Scanning
-simultaneously.
-
-(2) In Figure 3, why some ports (22, 2222, 37777) have very minimal scans compared to
-other ports (23, 5555).
+(2) I quite didn’t understand how Bro can protect itself from subterfuge attacks. The ex-
+ample provided in the text seems trivial to defend against.
 
 ### 3. What parts of the paper are questionable? (That is, you think a conclusion may be wrong, an approach or evaluation technically flawed, or data ill-presented.)
 
-(1) On Page 1, the second paragraph talks about how ”efficient spreading based on Internet-wide scanning” was one reason behind Mirai’s success. On Page 3, though, it says that "Mirai’s probes were based on stateless scanning” under Network Telescope section. I wonder if it is stateless, then how come it is efficient spreading?
+(1) The author mentions that for better monitoring, Bro tries to store the full packet content
+except for TCP SYN/RST/FIN. I was wondering how much space we really need in case of heavy traffic link monitoring, and the link is also facing overload attacks simultaneously?
 
-(2) Most of the attack targets are run by well-known network operators, so most of them
-would be using firewalls, intrusion detection systems, etc. I doubt that the authors
-measure how well these defenses worked to keep the attacks out.
 
-### 4. You’ve now read 2 papers on DoS, 16 years apart. From these two works (”Inferring Internet Denial-of-Service Activity”, and ”Understanding the Mirai Botnet”),how has the landscape of DoS changed both technically and non-technically? Identify specifics.
+(2) The Bro language doesn’t support loop constructs. However, I believe we need loops if we want to do brute-force scans when indexed search is not possible to do.
 
-The first paper used the backscatter theory to analyze attack patterns, whereas the second adopted a holistic approach and analyzed data for an extended duration. Both papers have different threat models because the IoT world wasn’t observed in the first. Moreover, in the former, the attack pattern seemed static; however, in the latter, the malware was dynamic and adaptable to new exploits, making the defender’s job harder. On the non-technical side, the companies became much more concerned about the security of their customers. For instance, in Figure 3, the peak of infections didn’t last long because the patches were deployed immediately against the vulnerabilities.
+(3) How effectively Bro performs in case of Encrypted network traffic?
 
-### 5. Identify a specific methodological contribution you found interesting in this paper, and describe it briefly. What is another kind of attack or study that could make use of this method?
+(4) Snort was also introduced around the same time frame, however authors don’t compare Bro against Snort to highlight its pros and cons.
 
-I found the idea of IoT Honeypots interesting. The authors collected binaries out of honeypots, and then extracted default passwords dictionary, IP blacklists, C2C server domains, and how the malware was changing with time.
-I believe honeypots can also aid in determining the IP addresses of infected devices and DDoS targets. This IP information can be used to alert ISPs and network administrators about ongoing malicious activities. This data is more detailed than simply collecting scanning behavior.
+### 4. The most popular open source NIDS today are Snort and Suricata. What can you determine about their overall architecture and its model of how to detect attacks? What do you see as its strength and weaknesses?
 
-### 6. Bonus (optional) both works make use of network telescopes. Do you find one description or approach to be more clear, compelling, or ”correct”? Justify your answer.
+(1) They monitor traffic in the network, compare the received packets against signatures, log attacks, and later present the attack statistics. Their architecture is not decoupled like Bro’s architecture: event generation engine and policy script interpreter.
 
-I believe the former is more compelling because it clearly states all the assumptions. The second one, on the other hand, might have some ”hidden” presumptions that the authors don’t talk about. Also, the latter relies on several other techniques apart from Network Telescopes, and the authors don’t highlight how much telescopes have actually helped them.
+(2) Bro is an IDS system, however Snort and Suricata are both IDS and IPS engines.
+
+(3) Bro operates on single-thread, however these both work on multi-threaded design to provide multiple detection engines.
+
+(4) Bro takes both signature and anomaly based approaches for detection, however Snort and Suricata only uses signature or rule-based approaches.
+
+### 5. Investigate (say a half hour’s worth) a modern commercial intrusion detection/prevention system. What you can determine about its technical underpinnings? How does its approach compare to those of Bro and Suricata? Provide URL(s) to the information you used in your assessment.
+
+I studied about CISCO IDS [1]. Its architecture is somewhat similar to Suricata; however different from Zeek(Bro). Cisco’s overall architecture can be split into two entities, i.e., the Sensor
+platform (SP) and the Director platform (DP). SP captures the network traffic, performs the monitoring based on its signature database, and later alarms the suspicious activity via com-
+mand and control to DP. 
+
+DP is a management GUI for end-users and configures sensors and the
+actions corresponding to the sensor alarms. The same is not the case with Zeek, whose architecture is highly modular, does deep packet inspection, and takes both signature and anomaly-based
+detection approaches. Users on [2] reports that the installation process is easier and cheaper for open-source IDSes due to the presence of active community, however Cisco IDS is better in
+terms re-programmability and accountability. Additionally, Cisco IDS does great job with both IP fragment and TCP session reassembly.
+
+### References
+[1] https://www.ciscopress.com/articles/article.asp?p=24696
+
+[2] https://community.cisco.com/t5/network-security/cisco-ids-vs-snort/td-p/317493
+
+[3] https://www.gartner.com/reviews/market/intrusion-prevention-systems/compare/cisco-vs-snort
