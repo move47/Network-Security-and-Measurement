@@ -22,9 +22,15 @@
 
 ### 6) Bonus (optional) there is a large body of work on traceback, launched (in part) as a followup to this work. Do a brief literature search (protip: pivot on papers that cite this paper) and identify a follow-on study you find interesting. Why is
 it interesting? Do you think it improves significantly over the original? Other thoughts?
-
-    I found the study by Song. et al. [1](#references) interesting. The study proposes an optimization and highlights the limitations in this work along the way. I particularly liked their idea of using simple hashing operations for compression. It reduces the reconstruction overhead as hashing is deterministic, unlike the random search required for getting the right combinations for the re-fragamation of XORed segments in the current work. This study also provides a study that covers most of the performance metrics that are not in current work. However, they also validate
-    the efficacy in a simulation setting only. They also discuss an authentication mechanism to avoid relaying any fake marked packet.
+    
+    I found the study by Song. et al. [1](#References) interesting. 
+    The study proposes an optimization and highlights the limitations in this work along the way. 
+    I particularly liked their idea of using simple hashing operations for compression. 
+    It reduces the reconstruction overhead as hashing is deterministic, unlike the random search 
+    required for getting the right combinations for the re-fragamation of XORed segments in the current work. 
+    This study also provides a study that covers most of the performance metrics that are not in current work. 
+    However, they also validate the efficacy in a simulation setting only. 
+    They also discuss an authentication mechanism to avoid relaying any fake marked packet.
 
 ### References
 
